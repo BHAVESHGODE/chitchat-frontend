@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useLogin from "../../hooks/useLogin";
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,99 +14,50 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
-      <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
-        <h1 className="text-3xl font-semibold text-center text-gray-300">
-          Login
-          <span className="text-blue-500"> ChatApp</span>
-        </h1>
-
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label className="label p-2">
-              <span className="text-base label-text">Username</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Enter username"
-              className="w-full input input-bordered h-10"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div>
-            <label className="label">
-              <span className="text-base label-text">Password</span>
-            </label>
-            <input
-              type="password"
-              placeholder="Enter Password"
-              className="w-full input input-bordered h-10"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+    <div className="h-full w-full  flex flex-col items-center justify-center overflow-hidden p-4">
+      <h1 className="text-4xl mb-4 font-extrabold text-black">Login</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="border-2 border-black rounded-lg w-[500px] bg-white max-w-[90vw] shadow-lg"
+      >
+        <div className="p-4">
+          <h1 className="text-2xl font-extrabold text-black px-2">Username</h1>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Enter your username here"
+            className="w-full py-4 px-2 mt-2 mb-4 border-2 border-blue-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <h1 className="text-2xl font-extrabold text-black px-2">Password</h1>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password here"
+            className="w-full py-4 px-2 mt-2 mb-4 border-2 border-blue-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
           <Link
             to="/signup"
-            className="text-sm  hover:underline hover:text-blue-600 mt-2 inline-block"
+            className="text-sm hover:underline text-green-600 hover:text-green-600 mt-2 inline-block"
           >
             {"Don't"} have an account?
           </Link>
-
-          <div>
-            <button className="btn btn-block btn-sm mt-2" disabled={loading}>
-              {loading ? (
-                <span className="loading loading-spinner "></span>
-              ) : (
-                "Login"
-              )}
-            </button>
-          </div>
-        </form>
-      </div>
+          <button
+            type="submit"
+            className="bg-green-500 text-white font-bold py-2 w-full rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 mt-4"
+            disabled={loading}
+          >
+            {loading ? (
+              <span className="loading loading-spinner"></span>
+            ) : (
+              "Login"
+            )}
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
+
 export default Login;
-
-// STARTER CODE FOR THIS FILE
-// const Login = () => {
-// 	return (
-// 		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
-// 			<div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
-// 				<h1 className='text-3xl font-semibold text-center text-gray-300'>
-// 					Login
-// 					<span className='text-blue-500'> ChatApp</span>
-// 				</h1>
-
-// 				<form>
-// 					<div>
-// 						<label className='label p-2'>
-// 							<span className='text-base label-text'>Username</span>
-// 						</label>
-// 						<input type='text' placeholder='Enter username' className='w-full input input-bordered h-10' />
-// 					</div>
-
-// 					<div>
-// 						<label className='label'>
-// 							<span className='text-base label-text'>Password</span>
-// 						</label>
-// 						<input
-// 							type='password'
-// 							placeholder='Enter Password'
-// 							className='w-full input input-bordered h-10'
-// 						/>
-// 					</div>
-// 					<a href='#' className='text-sm  hover:underline hover:text-blue-600 mt-2 inline-block'>
-// 						{"Don't"} have an account?
-// 					</a>
-
-// 					<div>
-// 						<button className='btn btn-block btn-sm mt-2'>Login</button>
-// 					</div>
-// 				</form>
-// 			</div>
-// 		</div>
-// 	);
-// };
-// export default Login;
