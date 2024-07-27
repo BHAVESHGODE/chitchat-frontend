@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const connectToMongoDB = async () => {
   try {
     console.log(process.env.NODE_ENV);
@@ -9,5 +8,4 @@ const connectToMongoDB = async () => {
     console.log("Error connecting to MongoDB", error.message);
   }
 };
-
 export default connectToMongoDB;
